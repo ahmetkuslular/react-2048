@@ -1,15 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function Game({ cells }) {
+function Game({ cells, size }) {
   return (
     <Wrapper>
-      <Grid>
-        {Array.from(new Array(16), (_, i) => i).map(i => (
+      <Grid size={size}>
+        {Array.from(new Array(size * size), (_, i) => i).map(i => (
           <Box key={i} />
         ))}
       </Grid>
-      <Playground>
+      <Playground size={size}>
         {cells.map((row, y) =>
           row.map((value, x) => {
             if (value === 0) return null;
@@ -39,8 +39,8 @@ const Grid = styled.div`
   width: 380px;
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(${({ size }) => size}, 1fr);
+  grid-template-rows: repeat(${({ size }) => size}, 1fr);
   position: absolute;
 `;
 

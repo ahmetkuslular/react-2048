@@ -1,32 +1,23 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import './App.css';
-
 import Container from 'components/Container';
 import ScoreBoard from 'components/ScoreBoard';
 import GameSettings from 'components/GameSettings';
 import Game from 'components/Game';
-import { directions, keyPressed, setup } from './controller';
+
+import gameInit from 'controller/gameInit';
+import move from 'controller/move';
+import { mapKeyCodeToDirection } from 'controller/directios';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cells: setup(),
+      cells: gameInit(4),
       score: 0,
+      size: 4,
     };
   }
-
-  mapKeyCodeToDirection = {
-    KeyA: directions.LEFT,
-    KeyS: directions.DOWN,
-    KeyD: directions.RIGHT,
-    KeyW: directions.UP,
-    ArrowLeft: directions.LEFT,
-    ArrowDown: directions.DOWN,
-    ArrowRight: directions.RIGHT,
-    ArrowUp: directions.UP,
-  };
 
   componentDidMount() {
     document.addEventListener('keydown', this.handleKeyPress);
@@ -42,15 +33,15 @@ class App extends Component {
         event.code,
       )
     ) {
-      const { grid, score } = keyPressed(this.mapKeyCodeToDirection[event.code]);
+      const { cells, score } = move(this.state.cells, mapKeyCodeToDirection[event.code]);
       this.setState({
-        cells: grid,
+        cells,
         score,
       });
     }
   };
   render() {
-    const { cells, score } = this.state;
+    const { cells, score, size } = this.state;
     return (
       <Container>
         <Wrapper>
@@ -58,7 +49,7 @@ class App extends Component {
           <GameSettings />
         </Wrapper>
         <Wrapper>
-          <Game cells={cells} />
+          <Game cells={cells} size={size} />
         </Wrapper>
       </Container>
     );
