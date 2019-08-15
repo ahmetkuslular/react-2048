@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
+
 import Container from 'components/Container';
 import ScoreBoard from 'components/ScoreBoard';
 import GameSettings from 'components/GameSettings';
@@ -8,6 +9,7 @@ import Game from 'components/Game';
 import gameInit from 'controller/gameInit';
 import move from 'controller/move';
 import { mapKeyCodeToDirection } from 'controller/directios';
+import { light, dark } from './theme';
 
 class App extends Component {
   constructor(props) {
@@ -16,6 +18,7 @@ class App extends Component {
       cells: gameInit(4),
       score: 0,
       size: 4,
+      theme: light,
     };
   }
 
@@ -40,18 +43,28 @@ class App extends Component {
       });
     }
   };
+
+  changeTheme = () => {
+    this.setState(state => ({
+      ...state,
+      theme: state.theme === light ? dark : light,
+    }));
+  };
+
   render() {
-    const { cells, score, size } = this.state;
+    const { cells, score, size, theme } = this.state;
     return (
-      <Container>
-        <Wrapper>
-          <ScoreBoard score={score} />
-          <GameSettings />
-        </Wrapper>
-        <Wrapper>
-          <Game cells={cells} size={size} />
-        </Wrapper>
-      </Container>
+      <ThemeProvider theme={theme}>
+        <Container>
+          <Wrapper>
+            <ScoreBoard score={score} />
+            <GameSettings />
+          </Wrapper>
+          <Wrapper>
+            <Game cells={cells} size={size} />
+          </Wrapper>
+        </Container>
+      </ThemeProvider>
     );
   }
 }

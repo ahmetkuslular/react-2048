@@ -4,9 +4,9 @@ import styled from 'styled-components';
 function GameSettings() {
   return (
     <Wrapper>
-      <Box>
+      <Button>
         <Label>Yeni Oyun</Label>
-      </Box>
+      </Button>
     </Wrapper>
   );
 }
@@ -14,16 +14,20 @@ function GameSettings() {
 const Wrapper = styled.div`
   display: flex;
   justify-content: flex-end;
-  margin-top:10px;
+  margin-top: 10px;
 `;
 
-const Box = styled.div`
+const Button = styled.button`
   min-width: 100px;
   text-align: center;
   justify-content: center;
   color: white;
   background-color: #bbada0;
   padding: 5px;
+  text-transform: capitalize;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
 `;
 
 const Label = styled.div`

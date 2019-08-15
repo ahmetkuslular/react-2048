@@ -27,7 +27,7 @@ const Wrapper = styled.div`
 
 const GameNameLabel = styled.div`
   font-weight: bold;
-  font-size: 3em;
+  font-size: 4em;
   text-align: center;
   color: #776e65;
 `;
@@ -46,6 +46,7 @@ const Box = styled.div`
   background-color: #bbada0;
   margin-left: 5px;
   padding: 5px;
+  border-radius: 5px;
 `;
 
 const Label = styled.div`
