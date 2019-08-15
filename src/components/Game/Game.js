@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function Game({ cells, size }) {
+function Game({ cells, size, theme }) {
   return (
     <Wrapper>
       <Grid size={size}>
@@ -13,9 +13,8 @@ function Game({ cells, size }) {
         {cells.map((row, y) =>
           row.map((value, x) => {
             if (value === 0) return null;
-
             return (
-              <Cell key={`key_${x}_${y}`} x={x + 1} y={y + 1}>
+              <Cell key={`key_${x}_${y}`} x={x + 1} y={y + 1} value={value}>
                 {value}
               </Cell>
             );
@@ -28,7 +27,7 @@ function Game({ cells, size }) {
 
 const Wrapper = styled.div`
   border-radius: 5px;
-  background-color: #bbada0;
+  background-color: ${props => props.theme.primaryColor};
   height: 380px;
   width: 380px;
   padding: 10px;
@@ -45,7 +44,7 @@ const Grid = styled.div`
 `;
 
 const Box = styled.div`
-  background-color: #cdc1b3;
+  background-color: ${props => props.theme.cellBackground};
   color: #fff;
   border-radius: 5px;
 `;
@@ -58,15 +57,15 @@ const Cell = styled.div`
   grid-column: ${({ x }) => x} / ${({ x }) => x + 1};
   grid-row: ${({ y }) => y} / ${({ y }) => y + 1};
 
-  background-color: #f8f7f7;
-  color: #6a4e4e;
+  background-color: ${props => props.theme[`cellColor_${props.value}`]};
+  color: ${({ theme, value }) => (value < 8 ? theme.cellLabel : theme.white)};
   border-radius: 5px;
   padding: 5px;
 
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 50px;
+  font-size: ${({ value }) => (value < 100 ? 55 : value < 1000 ? 40 : value < 10000 ? 35 : 25)}px;
   font-weight: bold;
 `;
 

@@ -58,7 +58,7 @@ class App extends Component {
         <Container>
           <Wrapper>
             <ScoreBoard score={score} />
-            <GameSettings />
+            <GameSettings theme={theme} changeTheme={this.changeTheme} />
           </Wrapper>
           <Wrapper>
             <Game cells={cells} size={size} />

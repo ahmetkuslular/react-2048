@@ -1,9 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import { light } from '../../theme';
 
-function GameSettings() {
+function GameSettings({ theme, changeTheme }) {
   return (
     <Wrapper>
+      <MoonButton onClick={changeTheme}>
+        {theme === light ? <span>🌒 </span> : <span> 🌔 </span>}
+      </MoonButton>
       <Button>
         <Label>Yeni Oyun</Label>
       </Button>
@@ -15,6 +19,16 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-top: 10px;
+`;
+
+const MoonButton = styled.button`
+  background-color: transparent;
+  padding: 5px;
+  text-transform: capitalize;
+  font-size: 32px;
+  outline: none;
+  border: none;
+  cursor: pointer;
 `;
 
 const Button = styled.button`

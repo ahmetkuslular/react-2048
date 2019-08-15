@@ -43,7 +43,7 @@ const Box = styled.div`
   text-align: center;
   justify-content: center;
   color: white;
-  background-color: #bbada0;
+  background-color: ${props => props.theme.primaryColor};
   margin-left: 5px;
   padding: 5px;
   border-radius: 5px;
