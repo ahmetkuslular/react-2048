@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function ScoreBoard() {
+function ScoreBoard({ score }) {
   return (
     <Wrapper>
       <GameNameLabel>2048</GameNameLabel>
       <Scores>
         <Box>
           <Label>Score</Label>
-          <Score>0</Score>
+          <Score>{score}</Score>
         </Box>
         <Box>
           <Label>Best</Label>

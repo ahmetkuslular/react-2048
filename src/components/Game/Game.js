@@ -1,29 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
-class Game extends Component {
-  render() {
-    const cells = [
-      { id: '1', state: 'IDLE', value: 2, x: 3, y: 1 },
-      { id: '2', state: 'IDLE', value: 2, x: 0, y: 1 },
-    ];
-    return (
-      <Wrapper>
-        <Grid>
-          {Array.from(new Array(16), (_, i) => i).map(i => (
-            <Box key={i} />
-          ))}
-        </Grid>
-        <Playground>
-          {cells.map(({ id, x, y, value }) => (
-            <Cell key={id} x={x} y={y} value={value}>
-              2018
-            </Cell>
-          ))}
-        </Playground>
-      </Wrapper>
-    );
-  }
+function Game({ cells }) {
+  return (
+    <Wrapper>
+      <Grid>
+        {Array.from(new Array(16), (_, i) => i).map(i => (
+          <Box key={i} />
+        ))}
+      </Grid>
+      <Playground>
+        {cells.map((row, y) =>
+          row.map((value, x) => {
+            if (value === 0) return null;
+
+            return (
+              <Cell key={`key_${x}_${y}`} x={x + 1} y={y + 1}>
+                {value}
+              </Cell>
+            );
+          }),
+        )}
+      </Playground>
+    </Wrapper>
+  );
 }
 
 const Wrapper = styled.div`
@@ -41,7 +41,6 @@ const Grid = styled.div`
   grid-gap: 10px;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
-
   position: absolute;
 `;
 
@@ -49,7 +48,6 @@ const Box = styled.div`
   background-color: #cdc1b3;
   color: #fff;
   border-radius: 5px;
-  font-size: 150%;
 `;
 
 const Playground = styled(Grid)`
@@ -59,11 +57,17 @@ const Playground = styled(Grid)`
 const Cell = styled.div`
   grid-column: ${({ x }) => x} / ${({ x }) => x + 1};
   grid-row: ${({ y }) => y} / ${({ y }) => y + 1};
-  background-color: #f10;
-  color: #fff;
+
+  background-color: #f8f7f7;
+  color: #6a4e4e;
   border-radius: 5px;
-  text-align: center;
   padding: 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  font-weight: bold;
 `;
 
 export default Game;
