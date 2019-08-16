@@ -29,7 +29,7 @@ const GameNameLabel = styled.div`
   font-weight: bold;
   font-size: 4em;
   text-align: center;
-  color: #776e65;
+  color: ${props => props.theme.labelColor};
 `;
 
 const Scores = styled.div`
@@ -42,7 +42,6 @@ const Box = styled.div`
   min-width: 75px;
   text-align: center;
   justify-content: center;
-  color: white;
   background-color: ${props => props.theme.primaryColor};
   margin-left: 5px;
   padding: 5px;
@@ -50,7 +49,7 @@ const Box = styled.div`
 `;
 
 const Label = styled.div`
-  color: #ede4da;
+  color: ${props => props.theme.labelColor};
   font-weight: bold;
   font-size: 15px;
   padding: 5px;
@@ -58,7 +57,7 @@ const Label = styled.div`
 `;
 
 const Score = styled.div`
-  color: #fff;
+  color: ${props => props.theme.white};
   font-weight: bold;
   font-size: 30px;
   left: 0;

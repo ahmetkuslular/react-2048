@@ -9,7 +9,7 @@ import Game from 'components/Game';
 import gameInit from 'controller/gameInit';
 import move from 'controller/move';
 import { mapKeyCodeToDirection } from 'controller/directios';
-import { light, dark } from './theme';
+import themes from './themes';
 
 class App extends Component {
   constructor(props) {
@@ -18,7 +18,7 @@ class App extends Component {
       cells: gameInit(4),
       score: 0,
       size: 4,
-      theme: light,
+      selectedTheme: 'light',
     };
   }
 
@@ -47,18 +47,18 @@ class App extends Component {
   changeTheme = () => {
     this.setState(state => ({
       ...state,
-      theme: state.theme === light ? dark : light,
+      selectedTheme: state.selectedTheme === 'light' ? 'dark' : 'light',
     }));
   };
 
   render() {
-    const { cells, score, size, theme } = this.state;
+    const { cells, score, size, selectedTheme } = this.state;
     return (
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={themes[selectedTheme]}>
         <Container>
           <Wrapper>
             <ScoreBoard score={score} />
-            <GameSettings theme={theme} changeTheme={this.changeTheme} />
+            <GameSettings selectedTheme={selectedTheme} changeTheme={this.changeTheme} />
           </Wrapper>
           <Wrapper>
             <Game cells={cells} size={size} />

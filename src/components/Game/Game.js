@@ -44,8 +44,7 @@ const Grid = styled.div`
 `;
 
 const Box = styled.div`
-  background-color: ${props => props.theme.cellBackground};
-  color: #fff;
+  background-color: ${props => props.theme.secondaryColor};
   border-radius: 5px;
 `;
 
