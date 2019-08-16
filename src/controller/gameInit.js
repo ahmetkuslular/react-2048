@@ -1,6 +1,5 @@
-import { setSize } from './move';
-import { blankGrid } from './gridHelpers';
 import newCell from './newCell';
+import { blankGrid } from './gridHelpers';
 
 function gameInit(size) {
   let grid = blankGrid(size);

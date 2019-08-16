@@ -1,15 +1,29 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
+
+GameSettings.propTypes = {
+  selectedTheme: PropTypes.string,
+  changeTheme: PropTypes.func,
+};
+
+GameSettings.defaultProps = {
+  selectedTheme: 'light',
+};
 
 function GameSettings({ selectedTheme, changeTheme }) {
   return (
     <Wrapper>
       <MoonButton onClick={changeTheme}>
-        {
-            selectedTheme === 'light'
-                ? <span> 🌒 </span>
-                : <span> 🌔 </span>
-        }
+        {selectedTheme === 'light' ? (
+          <span role="img" aria-label={selectedTheme}>
+            🌒
+          </span>
+        ) : (
+          <span role="img" aria-label={selectedTheme}>
+            🌔
+          </span>
+        )}
       </MoonButton>
       <Button>
         <Label>New Game</Label>

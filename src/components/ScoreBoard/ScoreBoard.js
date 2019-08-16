@@ -1,7 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-function ScoreBoard({ score }) {
+ScoreBoard.propTypes = {
+  score: PropTypes.number,
+  bestScore: PropTypes.number,
+};
+
+ScoreBoard.defaultProps = {
+  score: 0,
+  bestScore: 0,
+};
+
+function ScoreBoard({ score, bestScore }) {
   return (
     <Wrapper>
       <GameNameLabel>2048</GameNameLabel>
@@ -12,7 +23,7 @@ function ScoreBoard({ score }) {
         </Box>
         <Box>
           <Label>Best</Label>
-          <Score>10000</Score>
+          <Score>{bestScore}</Score>
         </Box>
       </Scores>
     </Wrapper>

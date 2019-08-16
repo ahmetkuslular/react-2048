@@ -1,5 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
+
+Game.propTypes = {
+  cells: PropTypes.array.isRequired,
+  size: PropTypes.number,
+  theme: PropTypes.string,
+};
+
+Game.defaultProps = {
+  size: 4,
+  theme: 'light',
+};
 
 function Game({ cells, size, theme }) {
   return (

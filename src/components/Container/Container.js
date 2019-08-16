@@ -1,5 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
+
+Container.propTypes = {
+  children: PropTypes.node,
+};
 
 function Container({ children }) {
   return (
@@ -23,7 +28,6 @@ const Content = styled.div`
   width: 420px;
   display: flex;
   flex-direction: column;
-  background-color: ${props => props.theme.background};
 `;
 
 export default Container;
