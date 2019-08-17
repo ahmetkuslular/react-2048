@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "enzyme-adapter-react-16": "^1.14.0",
+    "i": "^0.3.6",
+    "npm": "^6.10.3",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -12,7 +15,7 @@
   "scripts": {
     "start": "NODE_PATH=src:src/components react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "NODE_PATH=src:src/components jest --env=jsdom",
     "eject": "react-scripts eject",
     "format": "prettier \"src/**/*.{js,html}\" --write"
   },
@@ -32,6 +35,18 @@
     ]
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^24.9.0",
+    "enzyme": "^3.10.0",
+    "enzyme-to-json": "^3.4.0",
+    "jest": "24.7.1",
     "prettier": "1.18.2"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "./jestSetup.js"
+    ]
   }
 }

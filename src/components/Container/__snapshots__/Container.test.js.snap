@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/Container renders markup correctly 1`] = `
+<main
+  class="sc-bdVaJa ihPaUS"
+>
+  <div
+    class="sc-bwzfXH gnVKwi"
+  >
+    Children
+  </div>
+</main>
+`;

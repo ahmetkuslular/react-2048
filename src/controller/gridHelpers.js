@@ -17,7 +17,7 @@ function combineRow(row) {
   for (let i = row.length - 1; i >= 1; i--) {
     let a = row[i];
     let b = row[i - 1];
-    if (a === b) {
+    if (a === b && (a !== 0 || b !== 0)) {
       row[i] = a + b;
       scoreIncrease(row[i]);
       row[i - 1] = 0;
@@ -45,6 +45,7 @@ function flipGrid(grid) {
   return grid;
 }
 
+// can be using isEqual(oldGrid.sort(), newGrid.sort()) (LODASH)
 function compareGrid(oldGrid, newGrid) {
   const size = oldGrid[0].length;
   for (let i = 0; i < size; i++) {

@@ -13,7 +13,7 @@ Game.defaultProps = {
   theme: 'light',
 };
 
-function Game({ cells, size, theme }) {
+function Game({ cells, size }) {
   return (
     <Wrapper>
       <Grid size={size}>

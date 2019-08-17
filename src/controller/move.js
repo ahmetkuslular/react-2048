@@ -1,6 +1,6 @@
 import { cloneDeep } from 'lodash';
 
-import directions from './directios';
+import directions from '../constants/directios';
 import newCell from './newCell';
 import { rotateGrid, flipGrid, compareGrid, operate } from './gridHelpers';
 

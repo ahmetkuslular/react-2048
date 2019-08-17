@@ -8,7 +8,7 @@ import Game from 'components/Game';
 
 import gameInit from 'controller/gameInit';
 import move from 'controller/move';
-import { mapKeyCodeToDirection } from 'controller/directios';
+import { mapKeyCodeToDirection } from 'constants/directios';
 import themes from './themes';
 
 class App extends Component {

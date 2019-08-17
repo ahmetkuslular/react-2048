@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/ScoreBoard renders markup correctly 1`] = `
+<div
+  class="sc-bdVaJa UTvpt"
+>
+  <div
+    class="sc-bwzfXH bVQOI"
+  >
+    2048
+  </div>
+  <div
+    class="sc-htpNat dlPFFf"
+  >
+    <div
+      class="sc-bxivhb cmbYYR"
+    >
+      <div
+        class="sc-ifAKCX fWampi"
+      >
+        Score
+      </div>
+      <div
+        class="sc-EHOje hnfNpt"
+      >
+        12
+      </div>
+    </div>
+    <div
+      class="sc-bxivhb cmbYYR"
+    >
+      <div
+        class="sc-ifAKCX fWampi"
+      >
+        Best
+      </div>
+      <div
+        class="sc-EHOje hnfNpt"
+      >
+        20148
+      </div>
+    </div>
+  </div>
+</div>
+`;

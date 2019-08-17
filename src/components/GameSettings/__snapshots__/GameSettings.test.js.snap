@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/GameSettings renders markup correctly for dark theme 1`] = `
+<div
+  class="sc-bdVaJa cdoCJP"
+>
+  <button
+    class="sc-bwzfXH cludHl"
+    id="moon"
+  >
+    <span
+      aria-label="light"
+      role="img"
+    >
+      🌒
+    </span>
+  </button>
+  <button
+    class="sc-htpNat dMdHas"
+    id="new-game"
+  >
+    <div
+      class="sc-bxivhb lsVrT"
+    >
+      New Game
+    </div>
+  </button>
+</div>
+`;
+
+exports[`components/GameSettings renders markup correctly for light theme 1`] = `
+<div
+  class="sc-bdVaJa cdoCJP"
+>
+  <button
+    class="sc-bwzfXH cludHl"
+    id="moon"
+  >
+    <span
+      aria-label="light"
+      role="img"
+    >
+      🌒
+    </span>
+  </button>
+  <button
+    class="sc-htpNat dMdHas"
+    id="new-game"
+  >
+    <div
+      class="sc-bxivhb lsVrT"
+    >
+      New Game
+    </div>
+  </button>
+</div>
+`;

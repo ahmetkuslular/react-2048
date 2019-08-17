@@ -14,7 +14,7 @@ GameSettings.defaultProps = {
 function GameSettings({ selectedTheme, changeTheme }) {
   return (
     <Wrapper>
-      <MoonButton onClick={changeTheme}>
+      <MoonButton onClick={changeTheme} id="moon">
         {selectedTheme === 'light' ? (
           <span role="img" aria-label={selectedTheme}>
             🌒
@@ -25,9 +25,9 @@ function GameSettings({ selectedTheme, changeTheme }) {
           </span>
         )}
       </MoonButton>
-      <Button>
+      <NewGame id="new-game">
         <Label>New Game</Label>
-      </Button>
+      </NewGame>
     </Wrapper>
   );
 }
@@ -48,7 +48,7 @@ const MoonButton = styled.button`
   cursor: pointer;
 `;
 
-const Button = styled.button`
+const NewGame = styled.button`
   min-width: 100px;
   text-align: center;
   justify-content: center;
