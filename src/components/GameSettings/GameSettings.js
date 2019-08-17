@@ -5,16 +5,17 @@ import styled from 'styled-components';
 GameSettings.propTypes = {
   selectedTheme: PropTypes.string,
   changeTheme: PropTypes.func,
+  newGame: PropTypes.func,
 };
 
 GameSettings.defaultProps = {
   selectedTheme: 'light',
 };
 
-function GameSettings({ selectedTheme, changeTheme }) {
+function GameSettings({ selectedTheme, changeTheme, newGame }) {
   return (
     <Wrapper>
-      <MoonButton onClick={changeTheme} id="moon">
+      <MoonButton onClick={changeTheme}>
         {selectedTheme === 'light' ? (
           <span role="img" aria-label={selectedTheme}>
             🌒
@@ -25,7 +26,7 @@ function GameSettings({ selectedTheme, changeTheme }) {
           </span>
         )}
       </MoonButton>
-      <NewGame id="new-game">
+      <NewGame onClick={newGame}>
         <Label>New Game</Label>
       </NewGame>
     </Wrapper>

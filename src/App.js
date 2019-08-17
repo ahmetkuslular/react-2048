@@ -22,6 +22,14 @@ class App extends Component {
     };
   }
 
+  newGame = () => {
+    this.setState(state => ({
+      ...state,
+      cells: gameInit(state.size),
+      score: 0,
+    }));
+  };
+
   componentDidMount() {
     document.addEventListener('keydown', this.handleKeyPress);
   }
@@ -31,11 +39,7 @@ class App extends Component {
   }
 
   handleKeyPress = async event => {
-    if (
-      ['KeyA', 'KeyS', 'KeyD', 'KeyW', 'ArrowLeft', 'ArrowDown', 'ArrowRight', 'ArrowUp'].includes(
-        event.code,
-      )
-    ) {
+    if (mapKeyCodeToDirection[event.code]) {
       const { cells, score } = move(this.state.cells, mapKeyCodeToDirection[event.code]);
       this.setState({
         cells,
@@ -58,7 +62,11 @@ class App extends Component {
         <Container>
           <Wrapper>
             <ScoreBoard score={score} />
-            <GameSettings selectedTheme={selectedTheme} changeTheme={this.changeTheme} />
+            <GameSettings
+              selectedTheme={selectedTheme}
+              changeTheme={this.changeTheme}
+              newGame={this.newGame}
+            />
           </Wrapper>
           <Wrapper>
             <Game cells={cells} size={size} />
