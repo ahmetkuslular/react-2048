@@ -6,6 +6,7 @@ const light = {
   labelColor: '#776e65',
   cellLabel: '#776e65',
 
+  cellColor: '#eee4da',
   cellColor_2: '#eee4da',
   cellColor_4: '#eee1c9',
   cellColor_8: '#f3b27a',
@@ -27,6 +28,7 @@ const dark = {
   labelColor: '#506680',
   cellLabel: '#FFF',
 
+  cellColor: '#96abc3',
   cellColor_2: '#96abc3',
   cellColor_4: '#609cde',
   cellColor_8: '#004a9c',

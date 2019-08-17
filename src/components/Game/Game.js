@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+import Cell from 'components/Cell';
+
 Game.propTypes = {
   cells: PropTypes.array.isRequired,
   size: PropTypes.number,
@@ -18,7 +20,7 @@ function Game({ cells, size }) {
     <Wrapper>
       <Grid size={size}>
         {Array.from(new Array(size * size), (_, i) => i).map(i => (
-          <Box key={i} />
+          <Cell key={i}/>
         ))}
       </Grid>
       <Playground size={size}>
@@ -55,29 +57,8 @@ const Grid = styled.div`
   position: absolute;
 `;
 
-const Box = styled.div`
-  background-color: ${props => props.theme.secondaryColor};
-  border-radius: 5px;
-`;
-
 const Playground = styled(Grid)`
   background-color: transparent;
-`;
-
-const Cell = styled.div`
-  grid-column: ${({ x }) => x} / ${({ x }) => x + 1};
-  grid-row: ${({ y }) => y} / ${({ y }) => y + 1};
-
-  background-color: ${props => props.theme[`cellColor_${props.value}`]};
-  color: ${({ theme, value }) => (value < 8 ? theme.cellLabel : theme.white)};
-  border-radius: 5px;
-  padding: 5px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: ${({ value }) => (value < 100 ? 55 : value < 1000 ? 40 : value < 10000 ? 35 : 25)}px;
-  font-weight: bold;
 `;
 
 export default Game;
