@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/GameSettings renders markup correctly for Reports 1`] = `
+<div
+  class="sc-bwzfXH fsgDBc"
+>
+  <div
+    class="sc-htpNat hzRyGt"
+    size="4"
+  >
+    <div
+      class="sc-bdVaJa kreWvG"
+    />
+    <div
+      class="sc-bdVaJa kreWvG"
+    />
+    <div
+      class="sc-bdVaJa kreWvG"
+    />
+    <div
+      class="sc-bdVaJa kreWvG"
+    />
+    <div
+      class="sc-bdVaJa kreWvG"
+    />
+    <div
+      class="sc-bdVaJa kreWvG"
+    />
+    <div
+      class="sc-bdVaJa kreWvG"
+    />
+    <div
+      class="sc-bdVaJa kreWvG"
+    />
+    <div
+      class="sc-bdVaJa kreWvG"
+    />
+    <div
+      class="sc-bdVaJa kreWvG"
+    />
+    <div
+      class="sc-bdVaJa kreWvG"
+    />
+    <div
+      class="sc-bdVaJa kreWvG"
+    />
+    <div
+      class="sc-bdVaJa kreWvG"
+    />
+    <div
+      class="sc-bdVaJa kreWvG"
+    />
+    <div
+      class="sc-bdVaJa kreWvG"
+    />
+    <div
+      class="sc-bdVaJa kreWvG"
+    />
+  </div>
+  <div
+    class="sc-htpNat sc-bxivhb eSgRPr"
+    size="4"
+  >
+    <div
+      class="sc-bdVaJa kreWvG"
+      style="grid-column:4/5;grid-row:1/2;font-size:55px"
+      value="2"
+      x="4"
+      y="1"
+    >
+      2
+    </div>
+    <div
+      class="sc-bdVaJa kreWvG"
+      style="grid-column:2/3;grid-row:4/5;font-size:55px"
+      value="4"
+      x="2"
+      y="4"
+    >
+      4
+    </div>
+  </div>
+</div>
+`;

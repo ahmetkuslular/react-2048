@@ -12,5 +12,8 @@ describe('components/GameSettings', () => {
     ReactDOM.render(<Game size={4} cells={mockCells} />, div);
   });
 
-  //TODO: correctly testing
+  it(`renders markup correctly for Reports`, () => {
+    const tree = toJson(render(<Game size={4} cells={mockCells} />));
+    expect(tree).toMatchSnapshot();
+  });
 });
