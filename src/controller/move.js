@@ -7,7 +7,8 @@ import { rotateGrid, flipGrid, compareGrid, operate } from './gridHelpers';
 let score = 0;
 let bestScore = 0;
 
-function move(grid, direction) {
+function move(grid, direction, notCreateNewCell) {
+  debugger;
   const size = grid[0].length;
   let flipped = false;
   let rotated = false;
@@ -42,7 +43,7 @@ function move(grid, direction) {
     grid = rotateGrid(grid);
   }
 
-  if (changed) {
+  if (!notCreateNewCell && changed) {
     grid = newCell(grid);
   }
 
