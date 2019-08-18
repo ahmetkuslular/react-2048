@@ -10,10 +10,6 @@
 <h4 align="center"> This is a clone of 2048 implemented using React. 
 
 
-
-
-![2048-demo]()
-
 [LIVE](https://ahmetkuslular.github.io/react-2048/)
 
 ## How To Use
