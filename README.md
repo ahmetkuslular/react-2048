@@ -14,6 +14,7 @@
 
 ![2048-demo]()
 
+[LIVE](https://ahmetkuslular.github.io/react-2048/)
 
 ## How To Use
 
