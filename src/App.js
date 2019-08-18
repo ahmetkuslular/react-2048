@@ -18,6 +18,7 @@ class App extends Component {
     this.state = {
       cells: gameInit(4),
       score: 0,
+      bestScore: 0,
       size: 4,
       selectedTheme: 'light',
       gameOver: false,
@@ -44,11 +45,15 @@ class App extends Component {
   handleKeyPress = event => {
     const { gameOver } = this.state;
     if (!gameOver && mapKeyCodeToDirection[event.code]) {
-      const { cells, score, gameOver} = move(this.state.cells, mapKeyCodeToDirection[event.code]);
+      const { cells, score, bestScore, gameOver } = move(
+        this.state.cells,
+        mapKeyCodeToDirection[event.code],
+      );
       this.setState({
         cells,
         score,
-        gameOver
+        bestScore,
+        gameOver,
       });
     }
   };
@@ -61,12 +66,12 @@ class App extends Component {
   };
 
   render() {
-    const { cells, score, size, selectedTheme, gameOver } = this.state;
+    const { cells, score, bestScore, size, selectedTheme, gameOver } = this.state;
     return (
       <ThemeProvider theme={themes[selectedTheme]}>
         <Container>
           <Wrapper>
-            <ScoreBoard score={score} />
+            <ScoreBoard score={score} bestScore={bestScore} />
             <GameSettings
               selectedTheme={selectedTheme}
               changeTheme={this.changeTheme}

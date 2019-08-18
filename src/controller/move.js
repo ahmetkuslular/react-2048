@@ -5,6 +5,7 @@ import newCell from './newCell';
 import { rotateGrid, flipGrid, compareGrid, operate } from './gridHelpers';
 
 let score = 0;
+let bestScore = 0;
 
 function move(grid, direction) {
   const size = grid[0].length;
@@ -47,7 +48,7 @@ function move(grid, direction) {
 
   const gameOver = isGameOver(grid);
 
-  return { cells: grid, score, gameOver };
+  return { cells: grid, score, bestScore, gameOver };
 }
 
 function isGameOver(grid) {
@@ -70,6 +71,9 @@ function isGameOver(grid) {
 
 function scoreIncrease(point) {
   score += point;
+  if (score > bestScore) {
+    bestScore = score;
+  }
 }
 
 function setScore(newScore) {
