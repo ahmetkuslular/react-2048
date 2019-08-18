@@ -26,7 +26,7 @@ function move(grid, direction) {
 
   let oldGrid = cloneDeep(grid);
   for (let i = 0; i < size; i++) {
-    grid[i] = operate(grid[i], score);
+    grid[i] = operate(grid[i]);
   }
 
   const changed = compareGrid(oldGrid, grid);
@@ -47,11 +47,7 @@ function move(grid, direction) {
 
   const gameOver = isGameOver(grid);
 
-  if (gameOver) {
-    console.log('GAME OVER');
-  }
-
-  return { cells: grid, score };
+  return { cells: grid, score, gameOver };
 }
 
 function isGameOver(grid) {
@@ -76,5 +72,9 @@ function scoreIncrease(point) {
   score += point;
 }
 
-export { scoreIncrease };
+function setScore(newScore) {
+  score = newScore;
+}
+
+export { scoreIncrease, setScore };
 export default move;

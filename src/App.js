@@ -10,6 +10,7 @@ import gameInit from 'controller/gameInit';
 import move from 'controller/move';
 import { mapKeyCodeToDirection } from 'constants/directios';
 import themes from './themes';
+import GameOver from './components/GameOver';
 
 class App extends Component {
   constructor(props) {
@@ -19,6 +20,7 @@ class App extends Component {
       score: 0,
       size: 4,
       selectedTheme: 'light',
+      gameOver: false,
     };
   }
 
@@ -27,6 +29,7 @@ class App extends Component {
       ...state,
       cells: gameInit(state.size),
       score: 0,
+      gameOver: false,
     }));
   };
 
@@ -38,12 +41,14 @@ class App extends Component {
     document.removeEventListener('keydown', this.handleKeyPress);
   }
 
-  handleKeyPress = async event => {
-    if (mapKeyCodeToDirection[event.code]) {
-      const { cells, score } = move(this.state.cells, mapKeyCodeToDirection[event.code]);
+  handleKeyPress = event => {
+    const { gameOver } = this.state;
+    if (!gameOver && mapKeyCodeToDirection[event.code]) {
+      const { cells, score, gameOver} = move(this.state.cells, mapKeyCodeToDirection[event.code]);
       this.setState({
         cells,
         score,
+        gameOver
       });
     }
   };
@@ -56,7 +61,7 @@ class App extends Component {
   };
 
   render() {
-    const { cells, score, size, selectedTheme } = this.state;
+    const { cells, score, size, selectedTheme, gameOver } = this.state;
     return (
       <ThemeProvider theme={themes[selectedTheme]}>
         <Container>
@@ -69,6 +74,7 @@ class App extends Component {
             />
           </Wrapper>
           <Wrapper>
+            {gameOver && <GameOver />}
             <Game cells={cells} size={size} />
           </Wrapper>
         </Container>

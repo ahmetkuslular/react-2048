@@ -58,9 +58,9 @@ function compareGrid(oldGrid, newGrid) {
   return false;
 }
 
-function operate(row, score) {
+function operate(row) {
   row = slideRow(row);
-  row = combineRow(row, score);
+  row = combineRow(row);
   row = slideRow(row);
   return row;
 }

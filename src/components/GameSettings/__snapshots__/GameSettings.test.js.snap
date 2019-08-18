@@ -6,7 +6,6 @@ exports[`components/GameSettings renders markup correctly for dark theme 1`] = `
 >
   <button
     class="sc-bwzfXH cludHl"
-    id="moon"
   >
     <span
       aria-label="light"
@@ -17,7 +16,6 @@ exports[`components/GameSettings renders markup correctly for dark theme 1`] = `
   </button>
   <button
     class="sc-htpNat dMdHas"
-    id="new-game"
   >
     <div
       class="sc-bxivhb lsVrT"
@@ -34,7 +32,6 @@ exports[`components/GameSettings renders markup correctly for light theme 1`] = 
 >
   <button
     class="sc-bwzfXH cludHl"
-    id="moon"
   >
     <span
       aria-label="light"
@@ -45,7 +42,6 @@ exports[`components/GameSettings renders markup correctly for light theme 1`] = 
   </button>
   <button
     class="sc-htpNat dMdHas"
-    id="new-game"
   >
     <div
       class="sc-bxivhb lsVrT"
