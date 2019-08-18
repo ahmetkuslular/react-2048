@@ -8,21 +8,26 @@ import Game from 'components/Game';
 
 import gameInit from 'controller/gameInit';
 import move from 'controller/move';
-import { mapKeyCodeToDirection } from 'constants/directios';
+import { mapKeyCodeToDirection } from 'constants/directions';
 import themes from './themes';
 import GameOver from './components/GameOver';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      cells: gameInit(4),
-      score: 0,
-      bestScore: 0,
-      size: 4,
-      selectedTheme: 'light',
-      gameOver: false,
-    };
+  state = {
+    cells: gameInit(4),
+    score: 0,
+    bestScore: 0,
+    size: 4,
+    selectedTheme: 'light',
+    gameOver: false,
+  };
+
+  componentDidMount() {
+    document.addEventListener('keydown', this.handleKeyPress);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleKeyPress);
   }
 
   newGame = () => {
@@ -33,14 +38,6 @@ class App extends Component {
       gameOver: false,
     }));
   };
-
-  componentDidMount() {
-    document.addEventListener('keydown', this.handleKeyPress);
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('keydown', this.handleKeyPress);
-  }
 
   handleKeyPress = event => {
     const { gameOver } = this.state;

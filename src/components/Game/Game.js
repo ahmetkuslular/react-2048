@@ -15,14 +15,19 @@ Game.defaultProps = {
   theme: 'light',
 };
 
+function BackgroundGrid({ size }) {
+  return (
+    <Grid size={size}>
+      {Array.from(new Array(size * size), (_, i) => i).map(i => (
+        <Cell key={i} />
+      ))}
+    </Grid>
+  );
+}
 function Game({ cells, size }) {
   return (
     <Wrapper>
-      <Grid size={size}>
-        {Array.from(new Array(size * size), (_, i) => i).map(i => (
-          <Cell key={i}/>
-        ))}
-      </Grid>
+      <BackgroundGrid size={size} />
       <Playground size={size}>
         {cells.map((row, y) =>
           row.map((value, x) => {

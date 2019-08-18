@@ -11,4 +11,6 @@ describe('components/GameSettings', () => {
     const div = document.createElement('div');
     ReactDOM.render(<Game size={4} cells={mockCells} />, div);
   });
+
+  //TODO: correctly testing
 });
