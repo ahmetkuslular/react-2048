@@ -5,6 +5,7 @@
   "homepage": "https://ahmetkuslular.github.io/react-2048/",
   "dependencies": {
     "gh-pages": "^2.1.1",
+    "npm": "^6.13.4",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -41,8 +42,8 @@
     "babel-core": "^6.26.3",
     "babel-jest": "^24.9.0",
     "enzyme": "^3.10.0",
-    "enzyme-to-json": "^3.4.0",
     "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.4.0",
     "jest": "24.7.1",
     "prettier": "1.18.2"
   },
